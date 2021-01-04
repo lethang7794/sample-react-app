@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, ListGroupItem, ListGroup, Card } from 'react-bootstrap';
+import { Container, ListGroupItem, ListGroup, Card, CardColumns } from 'react-bootstrap';
 import './App.css';
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
           emoji={fruits[0].emoji}
           price={fruits[0].price}
         />
+        <FruitCards fruits={fruits} />
       </Container>
     </div>
   );
@@ -57,6 +58,13 @@ const List = ({ list }) => {
 /* A list of fruit cards */
 const fruits = [
   { description: 'Good.', name: 'apple', emoji: '🍎', price: 0.5 },
+  { description: 'So so.', name: 'orange', emoji: '🍊', price: 0.2 },
+  { description: 'Okay.', name: 'grape', emoji: '🍇', price: 1.2 },
+  { description: 'Excellent', name: 'pear', emoji: '🍐', price: 1.5 },
+  { description: 'Good.', name: 'strawberry', emoji: '🍓', price: 0.5 },
+  { description: 'So so.', name: 'mango', emoji: '🥭', price: 0.2 },
+  { description: 'Okay.', name: 'kiwi', emoji: '🥝', price: 1.2 },
+  { description: 'Excellent', name: 'watermelon', emoji: '🍉', price: 1.5 },
 ];
 
 const FruitCard = ({ description, name, emoji, price }) => {
@@ -74,4 +82,20 @@ const FruitCard = ({ description, name, emoji, price }) => {
     </Card>
   );
 };
+
+const FruitCards = ({ fruits }) => {
+  return (
+    <CardColumns>
+      {fruits.map((fruit) => (
+        <FruitCard
+          description={fruit.discription}
+          name={fruit.name}
+          emoji={fruit.emoji}
+          price={fruit.price}
+        />
+      ))}
+    </CardColumns>
+  );
+};
+
 export default App;
