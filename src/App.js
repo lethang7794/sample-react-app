@@ -8,12 +8,7 @@ function App() {
       <Container>
         <Message name="Jesus" yearOfBirth={0} />
         <List list={allItems} />
-        <FruitCard
-          description={fruits[0].description}
-          name={fruits[0].name}
-          emoji={fruits[0].emoji}
-          price={fruits[0].price}
-        />
+        <FruitCard {...fruits[0]}/>
         <FruitCards fruits={fruits} />
       </Container>
     </div>
@@ -49,7 +44,7 @@ const List = ({ list }) => {
   return (
     <ListGroup style={{ width: '12rem' }}>
       {list.map((item) => (
-        <Item id={item.id} value={item.value} />
+        <Item {...item}/>
       ))}
     </ListGroup>
   );
@@ -87,12 +82,7 @@ const FruitCards = ({ fruits }) => {
   return (
     <CardColumns>
       {fruits.map((fruit) => (
-        <FruitCard
-          description={fruit.discription}
-          name={fruit.name}
-          emoji={fruit.emoji}
-          price={fruit.price}
-        />
+        <FruitCard {...fruit}/>
       ))}
     </CardColumns>
   );
