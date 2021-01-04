@@ -18,7 +18,7 @@ function App() {
 /* A message */
 const Message = ({ name, yearOfBirth, }) => {
   return (
-    <h3 className="text-center">
+    <h3 className="Message text-center">
       Hi {name}, you are {2021 - yearOfBirth} years old.
     </h3>
   );
@@ -34,7 +34,7 @@ const allItems = [
 
 const Item = ({ id, value }) => {
   return (
-    <ListGroupItem>
+    <ListGroupItem className="Item">
       {id}: {value}
     </ListGroupItem>
   );
@@ -42,7 +42,7 @@ const Item = ({ id, value }) => {
 
 const List = ({ list }) => {
   return (
-    <ListGroup style={{ width: '12rem' }}>
+    <ListGroup className="List" style={{ width: '12rem' }}>
       {list.map((item) => (
         <Item {...item}/>
       ))}
@@ -64,7 +64,7 @@ const fruits = [
 
 const FruitCard = ({ description, name, emoji, price }) => {
   return (
-    <Card>
+    <Card className="Fruit-card">
       <Card.Body>
         <Card.Title>{emoji}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
@@ -80,7 +80,7 @@ const FruitCard = ({ description, name, emoji, price }) => {
 
 const FruitCards = ({ fruits }) => {
   return (
-    <CardColumns>
+    <CardColumns className="Fruit-cards">
       {fruits.map((fruit) => (
         <FruitCard {...fruit}/>
       ))}
