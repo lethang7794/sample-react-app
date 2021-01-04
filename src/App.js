@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, ListGroupItem, ListGroup } from 'react-bootstrap';
+import { Container, ListGroupItem, ListGroup, Card } from 'react-bootstrap';
 import './App.css';
 
 function App() {
@@ -8,6 +8,12 @@ function App() {
       <Container>
         <Message name="Jesus" yearOfBirth={0} />
         <List list={allItems} />
+        <FruitCard
+          description={fruits[0].description}
+          name={fruits[0].name}
+          emoji={fruits[0].emoji}
+          price={fruits[0].price}
+        />
       </Container>
     </div>
   );
@@ -45,6 +51,27 @@ const List = ({ list }) => {
         <Item id={item.id} value={item.value} />
       ))}
     </ListGroup>
+  );
+};
+
+/* A list of fruit cards */
+const fruits = [
+  { description: 'Good.', name: 'apple', emoji: '🍎', price: 0.5 },
+];
+
+const FruitCard = ({ description, name, emoji, price }) => {
+  return (
+    <Card>
+      <Card.Body>
+        <Card.Title>{emoji}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">
+          {name}
+        </Card.Subtitle>
+        <Card.Text>{description}</Card.Text>
+        <Card.Text>Dolorum eveniet et. Et quos possimus porro quae eligendi error sint aliquam. Nobis nostrum non voluptas et. Praesentium voluptatibus et eum dolorum dolores ut.</Card.Text>
+        <Card.Text>{price}$/1kg</Card.Text>
+      </Card.Body>
+    </Card>
   );
 };
 export default App;
